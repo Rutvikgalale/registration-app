@@ -16,7 +16,6 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <!-- Ensure all modules compile with Java 21 -->
     <maven.compiler.release>21</maven.compiler.release>
   </properties>
 
@@ -35,7 +34,7 @@
 
   <build>
     <plugins>
-      <!-- Updated compiler plugin for Java 21 -->
+      <!-- Compiler plugin for Java 21 -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -79,6 +78,13 @@
           </reportPlugins>
         </configuration>
       </plugin>
+
+      <!-- Modern Jetty plugin (optional, for local testing) -->
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>11.0.15</version>
+      </plugin>
     </plugins>
   </build>
 
@@ -116,10 +122,10 @@
   </dependencyManagement>
 
   <scm>
-    <connection>scm:git:git@github.com:Rutvikgalale/registration-app.git</connection>
+    <connection>scm:git:https://github.com/Rutvikgalale/registration-app.git</connection>
     <developerConnection>scm:git:git@github.com:Rutvikgalale/registration-app.git</developerConnection>
     <tag>HEAD</tag>
-    <url>http://github.com/Rutvikgalale/registration-app</url>
+    <url>https://github.com/Rutvikgalale/registration-app</url>
   </scm>
 
   <prerequisites>
