@@ -1,0 +1,20 @@
+pipeline{
+    agent any
+    stages{
+        stage("cleaning workspace"){
+            steps{
+                cleanWs();
+            }
+        }
+        stage("code checkout"){
+            steps{
+                git branch: "main", url: "https://github.com/Rutvikgalale/registration-app.git"
+            }
+        }
+        stage("build code using maven"){
+            steps{
+                sh "mvn clean package"
+            }
+        }
+    }
+}
