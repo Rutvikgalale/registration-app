@@ -19,7 +19,7 @@ pipeline{
         stage("deploy application on tomcat"){
             steps{
                 sh """
-                cp "/var/lib/jenkins/workspace/registration app/webapp/target/webapp.war" /opt/apache-tomcat/webapps
+                sudo u - tomcat cp "/var/lib/jenkins/workspace/registration app/webapp/target/webapp.war" /opt/apache-tomcat/webapps
                 """
             }
         }
