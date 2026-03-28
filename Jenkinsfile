@@ -20,8 +20,6 @@ pipeline{
             steps{
                 sh """
                 cp "/var/lib/jenkins/workspace/registration app/webapp/target/webapp.war" /opt/apache-tomcat/webapps
-                /opt/apache-tomcat/bin/shutdown.sh || true
-                /opt/apache-tomcat/bin/startup.sh
                 """
             }
         }
