@@ -24,17 +24,8 @@
     <module>webapp</module>
   </modules>
 
-  <distributionManagement>
-    <site>
-      <id>site-server</id>
-      <name>Test Project Site</name>
-      <url>file:///tmp/maven-project-site</url>
-    </site>
-  </distributionManagement>
-
   <build>
     <plugins>
-      <!-- Compiler plugin for Java 21 -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -66,20 +57,9 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-site-plugin</artifactId>
         <version>3.12.1</version>
-        <configuration>
-          <reportPlugins>
-            <plugin><artifactId>maven-checkstyle-plugin</artifactId></plugin>
-            <plugin><artifactId>maven-jxr-plugin</artifactId></plugin>
-            <plugin><artifactId>maven-javadoc-plugin</artifactId></plugin>
-            <plugin><artifactId>maven-pmd-plugin</artifactId></plugin>
-            <plugin><artifactId>maven-surefire-report-plugin</artifactId></plugin>
-            <plugin><groupId>org.codehaus.mojo</groupId><artifactId>findbugs-maven-plugin</artifactId></plugin>
-            <plugin><groupId>org.codehaus.mojo</groupId><artifactId>taglist-maven-plugin</artifactId></plugin>
-          </reportPlugins>
-        </configuration>
       </plugin>
 
-      <!-- Modern Jetty plugin (optional, for local testing) -->
+      <!-- Modern Jetty plugin -->
       <plugin>
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
