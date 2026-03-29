@@ -39,6 +39,7 @@
                     echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
                     docker tag registration-app ${DOCKER_USER}/registration-app:latest
                     docker push ${DOCKER_USER}/registration-app:latest
+                    docker rm -f registration-app || true
                     docker run -dit -p 8082:8082 --name registration-app rutvikg/registration-app:latest
                     """
                     }
