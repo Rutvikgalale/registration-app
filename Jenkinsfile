@@ -25,11 +25,11 @@
                     """
                 }
             }
+            */
             stage("build image using docker"){
                 steps{
                     sh "docker build -t registration-app ."
                 }
             }
-            */
         }
     }
