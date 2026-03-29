@@ -23,7 +23,7 @@
                 steps{
                     sh """
                     id
-                    cp "/var/lib/jenkins/workspace/registration app/webapp/target/webapp.war" /opt/apache-tomcat/webapps
+                    cp "/var/lib/jenkins/workspace/registration app@2/webapp/target/webapp.war" /opt/apache-tomcat/webapps
                     """
                 }
             }
