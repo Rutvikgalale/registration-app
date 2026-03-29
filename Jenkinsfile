@@ -1,5 +1,8 @@
     pipeline{
         agent any
+        environment{
+            DOCKER_USER="rutvikg"
+        }
         stages{
             stage("cleaning workspace"){
                 steps{
@@ -36,8 +39,8 @@
                     withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh """
                     echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-                    docker tag registration-app rutvikg/registration-app
-                    docker push rutvikg/registration-app
+                    docker tag registration-app ${DOCKER_USER}/registration-app
+                    docker push ${DOCKER_USER}/registration-app
                     """
                     }
                 }
