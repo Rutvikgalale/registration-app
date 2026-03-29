@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: registration-app-deployment
+  labels:
+    app: registration-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: registration-app
+  template:
+    metadata:
+      labels:
+        app: registration-app
+    spec:
+      containers:
+        - name: registration-app
+          image: rutvikg/registration-app:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8082
