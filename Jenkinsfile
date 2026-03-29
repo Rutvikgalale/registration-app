@@ -33,10 +33,13 @@
             }
             stage("push image to dockurhub"){
                 steps{
+                    withCredentials([usernamePassword(credentialsId: 'docker', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh """
+                    echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
                     docker tag registration-app rutvikg/registration-app
                     docker push rutvikg/registration-app
                     """
+                    }
                 }
             }
         }
