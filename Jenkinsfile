@@ -19,7 +19,6 @@
                     sh "mvn clean package"
                 }
             }
-            /*
             stage("deploy application on tomcat"){
                 steps{
                     sh """
@@ -28,7 +27,6 @@
                     """
                 }
             }
-            */
             stage("build image using docker"){
                 steps{
                     sh "docker build -t registration-app ."
