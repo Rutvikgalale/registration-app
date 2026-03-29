@@ -31,5 +31,14 @@
                     sh "docker build -t registration-app ."
                 }
             }
+            stage("push image to dockurhub"){
+                steps{
+                    sh """
+                    docker tag registration-app rutvikg/registration-app
+                    docker push rutvikg/registration-app
+                    """
+                }
+            }
         }
     }
+}
