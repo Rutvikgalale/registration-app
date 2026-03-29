@@ -16,12 +16,19 @@ pipeline{
                 sh "mvn clean package"
             }
         }
+        /*
         stage("deploy application on tomcat"){
             steps{
                 sh """
                 id
                 cp "/var/lib/jenkins/workspace/registration app/webapp/target/webapp.war" /opt/apache-tomcat/webapps
                 """
+            }
+        }
+        */
+        stage("build image using docker"){
+            steps{
+                sh "docker build -t registration-app ."
             }
         }
     }
