@@ -1,10 +1,7 @@
-FROM eclipse-temurin:21-jdk AS build
+FROM node:20-alpine
 WORKDIR /app
+COPY package*.json ./
+RUN npm install --production
 COPY . .
-RUN ./mvnw clean package -DskipTests
-
-FROM eclipse-temurin:21-jre
-WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
-EXPOSE 8080
-CMD ["java", "-jar", "app.jar"]
+EXPOSE 3000
+CMD ["node", "server.js"]
