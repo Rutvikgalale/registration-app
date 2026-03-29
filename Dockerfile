@@ -8,5 +8,5 @@ RUN mvn clean package -DskipTests
 FROM tomcat:9-jdk11
 WORKDIR /usr/local/tomcat/webapps/
 COPY --from=build /app/webapp/target/webapp.war webapp.war
-EXPOSE 8080
+EXPOSE 8082
 CMD ["catalina.sh", "run"]
